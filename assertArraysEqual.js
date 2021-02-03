@@ -1,4 +1,4 @@
-const eqArrays = function(array1, array2) {
+const eqArrays = function(array1, array2) { //function parameters passed from line 14
   if (array1.length !== array2.length) {
     return false;
   }
@@ -10,8 +10,8 @@ const eqArrays = function(array1, array2) {
   return true;
 };
 
-const assertArraysEqual = function(actual, expected) {
-  if (eqArrays(actual, expected)) {
+const assertArraysEqual = function(actual, expected) { //function parameters from line 23
+  if (eqArrays(actual, expected)) { //function parameters passed from line 13
     console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
   } else {
     console.log(`🛑🛑🛑Assertion Failed: ${actual} !== ${expected}`);
