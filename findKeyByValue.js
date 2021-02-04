@@ -13,6 +13,8 @@ const findKeyByValue = function(object, value) {
     //console.log("Tv show genre: " + tvShowGenre + ", show name: " + showName);
     if (value === showName) { //if the value parameter is the same as the showName from the for loop
       genre = tvShowGenre; // the genre variable will be replaced with the tvShowGenre key
+    } else {
+      genre = undefined;
     }
   }
   return genre;
