@@ -6,7 +6,7 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const eqArrays = function(array1, array2) {  // for step 4, is this supposed to replace the if statement on line 27???  
+const eqArrays = function(array1, array2) {
   if (array1.length !== array2.length) {
     return false;
   }
@@ -21,23 +21,23 @@ const eqArrays = function(array1, array2) {  // for step 4, is this supposed to 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
 const eqObjects = function(objOne, objTwo) {
-  if (Object.keys(objOne).length !== Object.keys(objTwo).length) { //comparing that both parameters have the same number of key/value pairs 
+  if (Object.keys(objOne).length !== Object.keys(objTwo).length) { //comparing that both parameters have the same number of key/value pairs
     // console.log(Object.keys(objOne).length)
     // console.log(Object.keys(objTwo).length)
-    return false; 
+    return false;
   }
-    for (const key in objOne) { 
+  for (const key in objOne) {
     console.log("the key is: ", key);
-    if(Array.isArray(objOne[key]) && Array.isArray(objTwo[key])) { // checking if the values are arrays. will return truthy/falsey      console.log(Array.isArray((objTwo[key])));
-      console.log(Array.isArray(objOne[key]))
+    if (Array.isArray(objOne[key]) && Array.isArray(objTwo[key])) { // checking if the values are arrays. will return truthy/falsey
+      console.log(Array.isArray(objOne[key]));
       console.log(Array.isArray(objTwo[key]));
       if (!eqArrays(objOne[key], objTwo[key])) {// if the arrays are not equal
         return false;
-        } 
+      }
     } else { //if the values are not arrays
       if (objOne[key] !== objTwo[key]) { //compare the values of the keys
         return false;
-      } 
+      }
     }
   }
   return true;
