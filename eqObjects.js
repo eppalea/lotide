@@ -6,7 +6,7 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const eqArrays = function(array1, array2) {
+const eqArrays = function(array1, array2) {  // for step 4, is this supposed to replace the if statement on line 27???  
   if (array1.length !== array2.length) {
     return false;
   }
@@ -21,21 +21,29 @@ const eqArrays = function(array1, array2) {
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
 const eqObjects = function(objOne, objTwo) {
-  let objOneKeys = Object.keys(objOne); // loops through the object and outputs the object's key(s) as string variables in an array
-  // console.log(objOneKeys);
-  let objTwoKeys = Object.keys(objTwo); // loops through the object and outputs the object's key(s) as string variables in an array
-  if (objOneKeys.length !== objTwoKeys.length) { //comparing that both parameters have the same number of key/value pairs by comparing the number of items in the arrays made in lines 12 & 14
-    return false;
-  } 
-  for (const key of objOneKeys) { //looping thru the first parameter, which is an object, and returning each string variable from the array created on lines 12
-  // console.log(key);
-  // console.log(objOne[key]);
-    if (objOne[key] !== objTwo[key]) {//comparing the key/value pairs of both object parameters. the key variable is reading the value associated with key key?? double check this
-      return false;
+  if (Object.keys(objOne).length !== Object.keys(objTwo).length) { //comparing that both parameters have the same number of key/value pairs 
+    // console.log(Object.keys(objOne).length)
+    // console.log(Object.keys(objTwo).length)
+    return false; 
+  }
+    for (const key in objOne) { 
+    console.log("the key is: ", key);
+    if(Array.isArray(objOne[key]) && Array.isArray(objTwo[key])) { // checking if the values are arrays. will return truthy/falsey      console.log(Array.isArray((objTwo[key])));
+      console.log(Array.isArray(objOne[key]))
+      console.log(Array.isArray(objTwo[key]));
+      if (!eqArrays(objOne[key], objTwo[key])) {// if the arrays are not equal
+        return false;
+        } 
+    } else { //if the values are not arrays
+      if (objOne[key] !== objTwo[key]) { //compare the values of the keys
+        return false;
+      } 
     }
   }
   return true;
 };
+
+
 
 const ab = { a: "1", b: "2"};
 const ba = { b: "2", a: "1"};
