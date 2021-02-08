@@ -6,7 +6,4 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-assertEqual("Eppa Lea", "Eppa Lea");
-assertEqual("Cat", "Dog");
-assertEqual(27, 27);
-assertEqual(10, 100);
+module.exports = assertEqual;
